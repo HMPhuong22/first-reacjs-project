@@ -12,11 +12,20 @@ class App17 extends React.Component {
     age: 23,
     address: "HB"
   }
-  render(){
+
+  eventClick = (event) => {
+    console.log(event)
+  }
+
+  hovelMouse = (event) =>{
+    console.log(event.clientY)
+  }
+
+  render(){ 
     return (
       <div>
-          Hello World &amp; Ha Minh Phuong
-          {this.state}
+        Name: {this.state.name} - Age: {this.state.age} - Address: {this.state.address}
+        <button onMouseOver={this.hovelMouse}>Click Me</button>
       </div>
     );
   }
@@ -47,4 +56,4 @@ const App = () => {
   );
 }
 
-// export default App16;
+// export default App16; 
