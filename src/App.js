@@ -7,14 +7,23 @@ import React from 'react';
 
 //#17
 class App17 extends React.Component {
-  state ={
+  state = {
     name: "phuong",
     age: 23,
     address: "HB"
   }
 
-  eventClick = (event) => {
-    console.log(event)
+  randomAge = () => {
+    return Math.floor((Math.random() * 100) + 1);
+  }
+
+  eventClick = () => {
+    this.setState(
+      {
+        name: 'Thanh',
+        age: this.randomAge() 
+      }
+    )
   }
 
   hovelMouse = (event) =>{
@@ -25,7 +34,7 @@ class App17 extends React.Component {
     return (
       <div>
         Name: {this.state.name} - Age: {this.state.age} - Address: {this.state.address}
-        <button onMouseOver={this.hovelMouse}>Click Me</button>
+        <button onClick={this.eventClick}>Click Me</button>
       </div>
     );
   }
