@@ -28,6 +28,15 @@ class App17 extends React.Component {
 
   hovelMouse = (event) =>{
     console.log(event.clientY)
+  } 
+
+  // Form 
+  handleOnSubmit = (event) =>{
+    this.setState({
+      name: event.target.value
+    })
+    event.preventDefault()
+    console.log(this.state)
   }
 
   render(){ 
@@ -35,6 +44,11 @@ class App17 extends React.Component {
       <div>
         Name: {this.state.name} - Age: {this.state.age} - Address: {this.state.address}
         <button onClick={this.eventClick}>Click Me</button>
+
+        <form onSubmit={(event) => {this.handleOnSubmit(event)}}>
+          <input type="text" name="name" onChange={(event) => {this.handleOnSubmit(event)}}/>
+          <button type="submit">Save</button>
+        </form>
       </div>
     );
   }
