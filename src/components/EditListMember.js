@@ -1,6 +1,6 @@
 import React from "react";
 
-class ListMemberComponent extends React.Component {
+class EditListMember extends React.Component {
     // Data
     state = {
         name: "Ha Minh Phuong",
@@ -19,28 +19,33 @@ class ListMemberComponent extends React.Component {
     }
     handleEditAge = (event) => {
         this.setState({
-            name: event.target.value,
+            age: event.target.value,
         })  
         event.preventDefault();
         console.log(this.state)
     }
     handleEditSex = (event) => {
         this.setState({
-            name: event.target.value,
-        })  
-        event.preventDefault();
-    }
-    handleEditAddress = (event) => {
-        this.setState({
-            name: event.target.value,
+            sex: event.target.value,
         })  
         event.preventDefault();
     }
 
+    handleEditAddress = (event) => {
+        this.setState({
+            address: event.target.value,
+        })  
+        event.preventDefault();
+    }
+
+    handleOnSubmit = (event) => {
+        event.preventDefault();
+    }
+
     render(){
-        return(
+        return( 
             <div>   
-                <form onSubmit={(event) => {this.handleEditName(event)}}>
+                <form onSubmit={(event) => {this.handleOnSubmit(event)}}>
                     <table id='head'>
                         <tr>
                             <td><label>Name:</label></td>
@@ -86,4 +91,4 @@ class ListMemberComponent extends React.Component {
     }
 }
 
-export default ListMemberComponent;
+export default EditListMember;
