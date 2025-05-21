@@ -1,4 +1,5 @@
 import React from "react";
+import logo from './../logo.svg';
 
 class DisplayInfomation extends React.Component{
     state = {
@@ -23,6 +24,7 @@ class DisplayInfomation extends React.Component{
         const {listUsers} = this.props;
         return(
             <div className="display-container">
+                <img src={logo} className="logo-reactjs"/>
                 <h1>Thông tin</h1>
                 {
                     this.state.check?
