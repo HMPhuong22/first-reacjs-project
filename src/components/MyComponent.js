@@ -4,8 +4,11 @@ import DisplayInf from "./DisplayInf";
 
 class MyComponent extends React.Component {
     state={
-        name: 'Phuong dey',
-        age: 23
+        listUsers: [
+            {id:1, name:"John", age:25},
+            {id:2, name:"Jane", age:30},
+            {id:3, name:"Bob", age:35},
+        ]
     }
 
     render(){
@@ -13,7 +16,7 @@ class MyComponent extends React.Component {
             <div>
                 <EditListMember/>
                 <br/><hr/>
-                <DisplayInf name={this.state.name} age={this.state.age}/>
+                <DisplayInf listUsers = {this.state.listUsers}/>
             </div>
         )
     }

@@ -30,7 +30,6 @@ class EditListMember extends React.Component {
         })  
         event.preventDefault();
     }
-
     handleEditAddress = (event) => {
         this.setState({
             address: event.target.value,
@@ -38,6 +37,7 @@ class EditListMember extends React.Component {
         event.preventDefault();
     }
 
+    // submit
     handleOnSubmit = (event) => {
         event.preventDefault();
     }
