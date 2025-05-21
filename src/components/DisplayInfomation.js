@@ -1,6 +1,6 @@
 import React from "react";
 
-class DisplayInf extends React.Component{
+class DisplayInfomation extends React.Component{
     state = {
         check: true   
     }
@@ -48,4 +48,4 @@ class DisplayInf extends React.Component{
     }
 }
 
-export default DisplayInf;
+export default DisplayInfomation;

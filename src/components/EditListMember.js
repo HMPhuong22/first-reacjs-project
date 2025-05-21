@@ -2,14 +2,15 @@ import React from "react";
 
 class EditListMember extends React.Component {
     // Data
-    state = {
-        name: "Ha Minh Phuong",
-        sex: "Male",
-        age: 23,
-        address: "Hoa Binh province"
-    }
 
     // edit data
+    handleEditId = (event) => {
+        this.setState({
+            id: event.target.value,
+        })  
+        event.preventDefault();
+        console.log(this.state)
+    }
     handleEditName = (event) => {
         this.setState({
             name: event.target.value,
@@ -24,68 +25,38 @@ class EditListMember extends React.Component {
         event.preventDefault();
         console.log(this.state)
     }
-    handleEditSex = (event) => {
-        this.setState({
-            sex: event.target.value,
-        })  
-        event.preventDefault();
-    }
-    handleEditAddress = (event) => {
-        this.setState({
-            address: event.target.value,
-        })  
-        event.preventDefault();
-    }
 
     // submit
     handleOnSubmit = (event) => {
+        const addUser = this.props.addUser({
+            id: (Math.floor(Math.random() * 100) + 1) + "-ramdom",
+            name: this.state.name,
+            age: this.state.age,
+        });
         event.preventDefault();
     }
 
     render(){
         return( 
-            <div>   
+            <div>  
                 <form onSubmit={(event) => {this.handleOnSubmit(event)}}>
                     <table id='head'>
-                        <tr>
-                            <td><label>Name:</label></td>
-                            <td><input type="text" id="fname" name="fname" value={this.state.name} onChange={(event) => this.handleEditName(event)}/><br/></td>
-                        </tr>
-                        <tr>
-                            <td><label>Age:</label></td>
-                            <td><input type="text" id="lname" name="lname" value={this.state.age} onChange={(event) => this.handleEditAge(event)}/><br/></td>
-                        </tr>
-                        <tr>
-                            <td><label>Sex:</label></td>
-                            <td><input type="text" id="lname" name="lname" value={this.state.sex} onChange={(event) => this.handleEditSex(event)}/><br/></td>
-                        </tr>
-                        <tr>
-                            <td><label>Address:</label></td>
-                            <td><input type="text" id="lname" name="lname" value={this.state.address} onChange={(event) => this.handleEditAddress(event)}/><br/></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button type="submit">Submit</button></td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td><label>Name:</label></td>
+                                <td><input type="text" onChange={(event) => this.handleEditName(event)}/><br/></td>
+                            </tr>
+                            <tr>
+                                <td><label>Age:</label></td>
+                                <td><input type="text" onChange={(event) => this.handleEditAge(event)}/><br/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="submit">Submit</button></td>
+                            </tr>
+                        </tbody>
                     </table> 
                 </form>
-                <br/>
-                <hr/>
-                <br/>
-                <table id='content'>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th> 
-                        <th>Sex</th>
-                        <th>Address</th>
-                    </tr>
-                    <tr>
-                        <td>{this.state.name}</td>
-                        <td>{this.state.age}</td>
-                        <td>{this.state.sex}</td>
-                        <td>{this.state.address}</td>
-                    </tr>
-                    </table>
             </div>
         )
     }

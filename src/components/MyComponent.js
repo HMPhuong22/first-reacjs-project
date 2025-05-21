@@ -1,6 +1,6 @@
 import React from "react";
 import EditListMember from "./EditListMember";
-import DisplayInf from "./DisplayInf";
+import DisplayInfomation from "./DisplayInfomation";
 
 class MyComponent extends React.Component {
     state={
@@ -15,12 +15,19 @@ class MyComponent extends React.Component {
         ]
     }
 
+    addUser = (value) => {
+        console.log("Check value: ", value)
+        this.setState({
+            listUsers: [value, ...this.state.listUsers]
+        })
+    }
+
     render(){
         return(
             <div>
-                <EditListMember/>
+                <EditListMember listUsers = {this.state.listUsers} addUser = {this.addUser}/>
                 <br/><hr/>
-                <DisplayInf listUsers = {this.state.listUsers}/>
+                <DisplayInfomation listUsers = {this.state.listUsers}/>
             </div>
         )
     }
