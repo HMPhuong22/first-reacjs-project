@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import './ListMember.css';
 import MyComponent from './components/MyComponent';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,6 +1,7 @@
 import React from "react";
 import EditListMember from "./EditListMember";
 import DisplayInfomation from "./DisplayInfomation";
+import "./DisplayInfomation.scss";
 
 class MyComponent extends React.Component {
     state={

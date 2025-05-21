@@ -22,7 +22,7 @@ class DisplayInfomation extends React.Component{
     render(){
         const {listUsers} = this.props;
         return(
-            <div>
+            <div className="display-container">
                 <h1>Thông tin</h1>
                 {
                     this.state.check?
