@@ -1,5 +1,6 @@
 import React from "react";
 import logo from './../logo.svg';
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 class DisplayInfomation extends React.Component{
     state = {
@@ -39,7 +40,8 @@ class DisplayInfomation extends React.Component{
                                     <div key={user.id} className={+user.age > 18? "green":"red"}>
                                         <span>ID: {user.id}</span><br/>
                                         <span>Name: {user.name}</span><br/>
-                                        <span>Age: {user.age}</span><hr/>
+                                        <span>Age: {user.age}</span><br/>
+                                        <button onClick={() => this.props.deleteUser(user.id)}>Xóa</button><hr/>
                                     </div>
                             )
                         })}

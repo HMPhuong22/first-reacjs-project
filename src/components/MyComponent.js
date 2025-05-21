@@ -23,13 +23,22 @@ class MyComponent extends React.Component {
         })
     }
 
+    deleteUser = (idValue) => {
+        let listUsersClone = [...this.state.listUsers]
+        const listUsersNew = listUsersClone.filter((users) => users.id !== idValue)
+        this.setState({
+            listUsers: listUsersNew
+        })
+    }
+
     render(){
         return(
-            <div>
+            // fragment
+            <>
                 <EditListMember listUsers = {this.state.listUsers} addUser = {this.addUser}/>
                 <br/><hr/>
-                <DisplayInfomation listUsers = {this.state.listUsers}/>
-            </div>
+                <DisplayInfomation listUsers = {this.state.listUsers} deleteUser = {this.deleteUser}/>
+            </>
         )
     }
 }
